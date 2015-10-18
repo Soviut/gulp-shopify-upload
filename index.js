@@ -152,7 +152,7 @@ shopify.upload = function(filepath, file, host, base, themeid) {
             var filename = filepath.replace(/^.*[\\\/]/, '');
             gutil.log(gutil.colors.green('Upload Complete: ' + filename));
         } else {
-          gutil.log(gutil.colors.red('Error undefined! ' + err.type));
+          gutil.log(gutil.colors.red('Error undefined! ' + err.type + ' : ' + err.message));
         }
     }
 
