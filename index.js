@@ -165,7 +165,10 @@ shopify.upload = function(filepath, file, host, base, themeid) {
 
 
 // plugin level function (dealing with files)
-function gulpShopifyUpload(apiKey, password, host, themeid, options) {
+function gulpShopifyUpload(apiKey, password, host, themeid, delay, options) {
+
+  // Set delay between uploads
+  delay = delay || 1000; // 1 second by default
 
   // Set up the API
   shopify._setOptions(options);
@@ -200,7 +203,7 @@ function gulpShopifyUpload(apiKey, password, host, themeid, options) {
     setTimeout(function() {
       // tell the stream engine that we are done with this file
       cb();
-    }, 1000);
+    }, delay);
   });
 
   // returning the file stream
