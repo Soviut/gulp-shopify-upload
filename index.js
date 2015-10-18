@@ -197,8 +197,10 @@ function gulpShopifyUpload(apiKey, password, host, themeid, options) {
     // make sure the file goes through the next gulp plugin
     this.push(file);
 
-    // tell the stream engine that we are done with this file
-    cb();
+    setTimeout(function() {
+      // tell the stream engine that we are done with this file
+      cb();
+    }, 1000);
   });
 
   // returning the file stream
